@@ -41,7 +41,7 @@
 
   In your Command Prompt, run:
   ```bash
-  python app.py
+  python webui.py
   ```
 
 ---
@@ -72,7 +72,7 @@
 
 - **Installation Command:** `pip install -r requirements.txt`
 - **Run on Linux (Ubuntu):** `python3 webui.py`
-- **Run on Windows:** `python app.py`
+- **Run on Windows:** `python webui.py`
 - **Python Version:** Python 3.11 or higher is required.
 - **API Key:** A valid BytArch API key is required. You can get your API key [here](https://bytarch.netlify.app/dashboard/docs).
 - **Subscription:** A valid Subscription/Pro Plan is required. Although a token plan is supported, it is not recommended due to high token consumption.
