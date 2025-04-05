@@ -1,7 +1,7 @@
 ## Requirements
 
 - **Python 3.11 or higher** is required.
-- A valid **BytArch API key** is required to use this application. You can get your API key here: [https://bytarch.netlify.app/dashboard/docs](https://bytarch.netlify.app/dashboard/docs).
+- A valid **BytArch API key** is required to use this application. You can get your API key here: [https://console.bytarch.run.place/](https://console.bytarch.run.place/).
 - A valid **Subscription Plan/Pro Plan** is required. Although a token plan is supported, it is not recommended due to high token consumption.
 
 ---
@@ -74,7 +74,7 @@
 - **Run on Linux (Ubuntu):** `python3 webui.py`
 - **Run on Windows:** `python webui.py`
 - **Python Version:** Python 3.11 or higher is required.
-- **API Key:** A valid BytArch API key is required. You can get your API key [here](https://bytarch.netlify.app/dashboard/docs).
+- **API Key:** A valid BytArch API key is required. You can get your API key [here](https://console.bytarch.run.place/).
 - **Subscription:** A valid Subscription/Pro Plan is required. Although a token plan is supported, it is not recommended due to high token consumption.
 
 ---
