@@ -35,12 +35,12 @@ def get_llm_model(provider: str, **kwargs):
 
     if provider == "bytarch":
         if not kwargs.get("base_url", ""):
-            base_url = "https://blacksourcellc.taile6b163.ts.net/v1/v1"
+            base_url = "https://bytarch.taile6b163.ts.net/back-end/v1"
         else:
             base_url = kwargs.get("base_url")
 
         return ChatOpenAI(
-            model=kwargs.get("model_name", "02::deminji-computer-use"),
+            model=kwargs.get("model_name", "gpt-4o"),
             temperature=kwargs.get("temperature", 0.0),
             base_url=base_url,
             api_key=api_key,
@@ -49,12 +49,28 @@ def get_llm_model(provider: str, **kwargs):
     else:
         raise ValueError(f"Unsupported provider: {provider}")
     
+def get_model_names():
+    url = "https://bytarch.taile6b163.ts.net/back-end/v1/models"
+
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        data = response.json()
+
+        # Extract models owned by "bytarch" and explicitly exclude "deepresearch"
+        models = [
+            model["id"] for model in data.get("data", []) 
+            if model.get("owned_by") == "bytarch" and model.get("owned_by") != "deepresearch"
+        ]
+
+        return {"bytarch": models}
+
+    except requests.RequestException as e:
+        print(f"Error fetching models: {e}")
+        return {"bytarch": []}  # Return empty list in case of failure
+
 # Predefined model names for common providers
-model_names = {
-    
-    "bytarch": ["501::browser-use","02::deminji-computer-use"],
-   
-}
+model_names = get_model_names()
 
 # Callback to update the model name dropdown based on the selected provider
 def update_model_dropdown(llm_provider, api_key=None, base_url=None):
